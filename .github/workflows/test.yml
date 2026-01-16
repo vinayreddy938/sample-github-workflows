@@ -1,4 +1,4 @@
-name: "practice github workflow"
+name: "multievent pipeline workflows"
 
 on:
   push:
@@ -7,9 +7,16 @@ on:
       - production
       - main
 
+  pull_request:
+    branches:
+      - main
+
 jobs:
   hello-job:
     runs-on: ubuntu-latest
     steps:
       - name: Print hello world
         run: echo "hi vinay"
+
+      - name: Print pull request
+        run: echo "pull request triggered"
